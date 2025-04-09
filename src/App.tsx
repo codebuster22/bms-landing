@@ -41,7 +41,7 @@ function App() {
       <LanguageSelector />
       
       {/* Navigation */}
-      <nav className="bg-[#0B3B8F] text-white py-4 px-6 md:px-8 lg:px-12">
+      <nav className="bg-[#0B3B8F] text-white py-4 px-6 md:px-8 lg:px-12 relative z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center">
             <img 
@@ -94,6 +94,11 @@ function App() {
           </div>
         )}
       </nav>
+
+      {/* Mobile Menu Overlay - added to block content when menu is open */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 bg-black/50 z-40" onClick={() => setIsMenuOpen(false)} />
+      )}
 
       {/* Hero Section */}
       <section className="relative py-20 px-6 md:px-8 lg:px-12">
@@ -152,7 +157,7 @@ function App() {
                 },
               }}
               className="absolute inset-0 w-full h-full"
-              onReady={(event) => {
+              onReady={(event: { target: { playVideo: () => void } }) => {
                 if (inView) {
                   event.target.playVideo();
                 }

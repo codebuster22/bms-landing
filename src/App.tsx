@@ -1,5 +1,5 @@
-import { Menu, X, FileCheck, DollarSign, FileX, ChevronRight, Download, Key, Mail, CheckCircle2, Monitor, Shield, Database, Layers } from 'lucide-react';
-import { useState } from 'react';
+import { Menu, X, FileCheck, DollarSign, FileX, ChevronRight, Download, Key, Mail, CheckCircle2, Monitor, Shield, Database, Layers, MessageSquareQuote, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import YouTube from 'react-youtube';
 import { getYouTubeVideoId } from './utils/youtube';
@@ -36,6 +36,41 @@ function App() {
     window.open(import.meta.env.VITE_DOWNLOAD_URL, '_blank');
   };
 
+  // Initialize Senja Collector and Widget
+  useEffect(() => {
+    // Load Senja collector script
+    const collectorScript = document.createElement('script');
+    collectorScript.src = 'https://widget.senja.io/js/collector.js';
+    collectorScript.async = true;
+    collectorScript.type = 'text/javascript';
+    document.body.appendChild(collectorScript);
+
+    // Load Senja widget script
+    const widgetScript = document.createElement('script');
+    widgetScript.src = 'https://widget.senja.io/widget/524530d8-7b52-418e-ac33-f47a66093d61/platform.js';
+    widgetScript.async = true;
+    widgetScript.type = 'text/javascript';
+    document.body.appendChild(widgetScript);
+
+    // Configure Senja collector
+    window.SenjaCollectorConfig = {
+      url: "https://senja.io/p/bmsfusion/r/NWjyM9",
+      trigger: {"type":"none"}
+    };
+
+    // Cleanup function
+    return () => {
+      document.body.removeChild(collectorScript);
+      document.body.removeChild(widgetScript);
+    };
+  }, []);
+
+  const openReviewForm = () => {
+    if (window.SenjaCollector) {
+      window.SenjaCollector.open();
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#F5F5F5] font-['Space_Grotesk']">
       <LanguageSelector />
@@ -65,7 +100,15 @@ function App() {
             <a href="#how-it-works" className="hover:text-[#FF9800] transition-colors">{t.nav.howItWorks}</a>
             <a href="#pricing" className="hover:text-[#FF9800] transition-colors">{t.nav.pricing}</a>
             <a href="#download" className="hover:text-[#FF9800] transition-colors">{t.nav.download}</a>
+            <a href="#testimonials" className="hover:text-[#FF9800] transition-colors">Testimonials</a>
             <a href="#support" className="hover:text-[#FF9800] transition-colors">{t.nav.support}</a>
+            <button 
+              onClick={openReviewForm}
+              className="flex items-center gap-1 hover:text-[#FF9800] transition-colors"
+            >
+              <Star size={18} />
+              Write a Review
+            </button>
             <LanguageToggle />
             <button 
               onClick={handlePurchaseClick}
@@ -83,7 +126,15 @@ function App() {
             <a href="#how-it-works" className="block">{t.nav.howItWorks}</a>
             <a href="#pricing" className="block">{t.nav.pricing}</a>
             <a href="#download" className="block">{t.nav.download}</a>
+            <a href="#testimonials" className="block">Testimonials</a>
             <a href="#support" className="block">{t.nav.support}</a>
+            <button 
+              onClick={openReviewForm}
+              className="flex items-center gap-1 w-full text-left"
+            >
+              <Star size={18} />
+              Write a Review
+            </button>
             <LanguageToggle />
             <button 
               onClick={handlePurchaseClick}
@@ -334,6 +385,36 @@ function App() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-20 px-6 md:px-8 lg:px-12 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3">
+            <MessageSquareQuote className="text-[#0B3B8F]" size={32} />
+            What Our Users Say
+          </h2>
+          {/* <div className="relative mb-10">
+            <div 
+              className="senja-embed shadow-[8px_8px_0_#212121] border-4 border-[#212121] rounded-lg overflow-hidden p-2" 
+              data-id="524530d8-7b52-418e-ac33-f47a66093d61" 
+              data-mode="shadow" 
+              data-lazyload="false" 
+              style={{ display: 'block', width: '100%', minHeight: '600px' }}
+            />
+          </div> */}
+          <div className="flex justify-center">
+            <button 
+              onClick={openReviewForm}
+              className="bg-[#0B3B8F] text-white px-8 py-3 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all flex items-center gap-2"
+              data-senja-collector-open="bmsfusion"
+              data-url="https://senja.io/p/bmsfusion/r/NWjyM9"
+            >
+              <Star size={20} />
+              Write a Review
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-[#0B3B8F] text-white py-12 px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
@@ -371,6 +452,21 @@ function App() {
       </footer>
     </div>
   );
+}
+
+declare global {
+  interface Window {
+    iFrameResize?: (options: any, selector: HTMLIFrameElement) => void;
+    SenjaCollector?: {
+      open: () => void;
+    };
+    SenjaCollectorConfig?: {
+      url: string;
+      trigger: {
+        type: string;
+      };
+    };
+  }
 }
 
 export default App;

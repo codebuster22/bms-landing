@@ -165,7 +165,7 @@ function App() {
               {t.hero.subtitle}
             </p>
             <p className="text-sm font-medium text-[#0B3B8F] mb-6 inline-flex items-center">
-              <span className="mr-2">•</span> Your license works for one year. You must buy it again each year.
+              <span className="mr-2">•</span> Your license works for one year. You must renew it each year.
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
@@ -361,7 +361,7 @@ function App() {
             <div className="text-center mb-8">
               <div className="text-5xl font-black mb-4">₹1,999</div>
               <div className="text-gray-600">{t.pricing.perYear}</div>
-              <div className="text-sm font-medium text-[#0B3B8F] mt-2">Your license works for one year. You must buy it again each year.</div>
+              <div className="text-sm font-medium text-[#0B3B8F] mt-2">Your license works for one year. You must renew it each year.</div>
             </div>
             <ul className="space-y-4 mb-8">
               {t.pricing.features.map((feature, index) => (

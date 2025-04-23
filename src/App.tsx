@@ -164,9 +164,9 @@ function App() {
             <p className="text-xl mb-8 text-gray-700">
               {t.hero.subtitle}
             </p>
-            <p className="text-sm font-medium text-[#0B3B8F] mb-6 inline-flex items-center">
+            {/* <p className="text-sm font-medium text-[#0B3B8F] mb-6 inline-flex items-center">
               <span className="mr-2">•</span> Your license works for one year. You must renew it each year.
-            </p>
+            </p> */}
             <div className="flex flex-wrap gap-4">
               <button 
                 onClick={handlePurchaseClick}

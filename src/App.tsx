@@ -97,11 +97,11 @@ function App() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="hover:text-[#FF9800] transition-colors">{t.nav.features}</a>
-            <a href="#how-it-works" className="hover:text-[#FF9800] transition-colors">{t.nav.howItWorks}</a>
+            <a href="#video-demo" className="hover:text-[#FF9800] transition-colors">{t.nav.howItWorks}</a>
             <a href="#pricing" className="hover:text-[#FF9800] transition-colors">{t.nav.pricing}</a>
             <a href="#download" className="hover:text-[#FF9800] transition-colors">{t.nav.download}</a>
             <a href="#testimonials" className="hover:text-[#FF9800] transition-colors">Testimonials</a>
-            <a href="#support" className="hover:text-[#FF9800] transition-colors">{t.nav.support}</a>
+            <a href="#footer" className="hover:text-[#FF9800] transition-colors">{t.nav.support}</a>
             <button 
               onClick={openReviewForm}
               className="flex items-center gap-1 hover:text-[#FF9800] transition-colors"
@@ -111,10 +111,10 @@ function App() {
             </button>
             <LanguageToggle />
             <button 
-              onClick={handlePurchaseClick}
+              onClick={handleDownloadClick}
               className="bg-[#FF9800] px-6 py-2 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all"
             >
-              {t.nav.purchaseNow}
+              {t.nav.download}
             </button>
           </div>
         </div>
@@ -123,11 +123,11 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden absolute top-16 left-0 w-full bg-[#0B3B8F] py-4 px-6 space-y-4 border-t border-white/10">
             <a href="#features" className="block">{t.nav.features}</a>
-            <a href="#how-it-works" className="block">{t.nav.howItWorks}</a>
+            <a href="#video-demo" className="block">{t.nav.howItWorks}</a>
             <a href="#pricing" className="block">{t.nav.pricing}</a>
             <a href="#download" className="block">{t.nav.download}</a>
             <a href="#testimonials" className="block">Testimonials</a>
-            <a href="#support" className="block">{t.nav.support}</a>
+            <a href="#footer" className="block">{t.nav.support}</a>
             <button 
               onClick={openReviewForm}
               className="flex items-center gap-1 w-full text-left"
@@ -137,10 +137,10 @@ function App() {
             </button>
             <LanguageToggle />
             <button 
-              onClick={handlePurchaseClick}
+              onClick={handleDownloadClick}
               className="w-full bg-[#FF9800] px-6 py-2 font-bold shadow-[4px_4px_0_#212121]"
             >
-              {t.nav.purchaseNow}
+              {t.nav.download}
             </button>
           </div>
         )}
@@ -169,14 +169,8 @@ function App() {
             </p> */}
             <div className="flex flex-wrap gap-4">
               <button 
-                onClick={handlePurchaseClick}
-                className="bg-[#0B3B8F] text-white px-8 py-3 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all flex items-center gap-2"
-              >
-                {t.hero.purchaseNow} <ChevronRight size={20} />
-              </button>
-              <button 
                 onClick={handleDownloadClick}
-                className="bg-white text-[#0B3B8F] border-2 border-[#0B3B8F] px-8 py-3 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all flex items-center gap-2"
+                className="bg-[#0B3B8F] text-white px-8 py-3 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all flex items-center gap-2"
               >
                 {t.hero.download} <Download size={20} />
               </button>
@@ -193,7 +187,7 @@ function App() {
       </section>
 
       {/* Demo Video Section */}
-      <section ref={videoSectionRef} className="py-20 px-6 md:px-8 lg:px-12 bg-white">
+      <section id="video-demo" ref={videoSectionRef} className="py-20 px-6 md:px-8 lg:px-12 bg-white">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-black mb-8 text-center">{t.demo.title}</h2>
           <div className="relative aspect-video rounded-lg shadow-[8px_8px_0_#212121] border-4 border-[#212121] overflow-hidden">
@@ -316,22 +310,13 @@ function App() {
                 <div className="w-12 h-12 bg-[#0B3B8F] flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold">3</div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 flex items-center gap-3">
-                    {t.setup.steps.database.title} <Database size={20} className="text-[#0B3B8F]" />
-                  </h3>
-                  <p className="text-gray-700">{t.setup.steps.database.description}</p>
-                </div>
-              </li>
-              <li className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-[#0B3B8F] flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold">4</div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2 flex items-center gap-3">
                     {t.setup.steps.purchase.title} <Key size={20} className="text-[#0B3B8F]" />
                   </h3>
                   <p className="text-gray-700">{t.setup.steps.purchase.description}</p>
                 </div>
               </li>
               <li className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-[#0B3B8F] flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold">5</div>
+                <div className="w-12 h-12 bg-[#0B3B8F] flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold">4</div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 flex items-center gap-3">
                     {t.setup.steps.activate.title} <Mail size={20} className="text-[#0B3B8F]" />
@@ -340,7 +325,7 @@ function App() {
                 </div>
               </li>
               <li className="flex gap-6 items-start">
-                <div className="w-12 h-12 bg-[#0B3B8F] flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold">6</div>
+                <div className="w-12 h-12 bg-[#0B3B8F] flex-shrink-0 flex items-center justify-center rounded-full text-white font-bold">5</div>
                 <div>
                   <h3 className="text-xl font-bold mb-2 flex items-center gap-3">
                     {t.setup.steps.enjoy.title} <CheckCircle2 size={20} className="text-[#0B3B8F]" />
@@ -371,18 +356,12 @@ function App() {
                 </li>
               ))}
             </ul>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button 
-                onClick={handlePurchaseClick}
-                className="flex-1 bg-[#0B3B8F] text-white px-8 py-3 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all"
-              >
-                {t.nav.purchaseNow}
-              </button>
+            <div className="flex justify-center">
               <button 
                 onClick={handleDownloadClick}
-                className="flex-1 bg-white text-[#0B3B8F] border-2 border-[#0B3B8F] px-8 py-3 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all"
+                className="bg-[#0B3B8F] text-white px-8 py-3 font-bold shadow-[4px_4px_0_#212121] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#212121] transition-all flex items-center gap-2"
               >
-                {t.nav.download}
+                {t.nav.download} <Download size={20} />
               </button>
             </div>
           </div>
@@ -420,7 +399,7 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#0B3B8F] text-white py-12 px-6 md:px-8 lg:px-12">
+      <footer id="footer" className="bg-[#0B3B8F] text-white py-12 px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
@@ -435,7 +414,7 @@ function App() {
                 <li><a href="#features" className="hover:text-[#FF9800]">{t.nav.features}</a></li>
                 <li><a href="#pricing" className="hover:text-[#FF9800]">{t.nav.pricing}</a></li>
                 <li><a href="#download" className="hover:text-[#FF9800]">{t.nav.download}</a></li>
-                <li><a href="#support" className="hover:text-[#FF9800]">{t.nav.support}</a></li>
+                <li><a href="#footer" className="hover:text-[#FF9800]">{t.nav.support}</a></li>
               </ul>
             </div>
             <div>

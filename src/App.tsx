@@ -358,6 +358,7 @@ function App() {
             <div className="text-center mb-8">
               <div className="text-5xl font-black mb-4">₹1,999</div>
               <div className="text-gray-600">{t.pricing.perYear}</div>
+              <div className="text-sm font-medium text-[#0B3B8F] mt-2">Your license works for one year. You must buy it again each year.</div>
             </div>
             <ul className="space-y-4 mb-8">
               {t.pricing.features.map((feature, index) => (

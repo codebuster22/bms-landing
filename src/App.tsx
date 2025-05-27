@@ -375,7 +375,7 @@ function App() {
             <MessageSquareQuote className="text-[#0B3B8F]" size={32} />
             What Our Users Say
           </h2>
-          {/* <div className="relative mb-10">
+          <div className="relative mb-10">
             <div 
               className="senja-embed shadow-[8px_8px_0_#212121] border-4 border-[#212121] rounded-lg overflow-hidden p-2" 
               data-id="524530d8-7b52-418e-ac33-f47a66093d61" 
@@ -383,7 +383,7 @@ function App() {
               data-lazyload="false" 
               style={{ display: 'block', width: '100%', minHeight: '600px' }}
             />
-          </div> */}
+          </div>
           <div className="flex justify-center">
             <button 
               onClick={openReviewForm}

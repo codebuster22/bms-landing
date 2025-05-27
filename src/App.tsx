@@ -100,14 +100,14 @@ function App() {
             <a href="#video-demo" className="hover:text-[#FF9800] transition-colors">{t.nav.howItWorks}</a>
             <a href="#pricing" className="hover:text-[#FF9800] transition-colors">{t.nav.pricing}</a>
             <a href="#download" className="hover:text-[#FF9800] transition-colors">{t.nav.download}</a>
-            <a href="#testimonials" className="hover:text-[#FF9800] transition-colors">Testimonials</a>
+            <a href="#testimonials" className="hover:text-[#FF9800] transition-colors">{t.nav.testimonials}</a>
             <a href="#footer" className="hover:text-[#FF9800] transition-colors">{t.nav.support}</a>
             <button 
               onClick={openReviewForm}
               className="flex items-center gap-1 hover:text-[#FF9800] transition-colors"
             >
               <Star size={18} />
-              Write a Review
+              {t.nav.writeReview}
             </button>
             <LanguageToggle />
             <button 
@@ -126,14 +126,14 @@ function App() {
             <a href="#video-demo" className="block">{t.nav.howItWorks}</a>
             <a href="#pricing" className="block">{t.nav.pricing}</a>
             <a href="#download" className="block">{t.nav.download}</a>
-            <a href="#testimonials" className="block">Testimonials</a>
+            <a href="#testimonials" className="block">{t.nav.testimonials}</a>
             <a href="#footer" className="block">{t.nav.support}</a>
             <button 
               onClick={openReviewForm}
               className="flex items-center gap-1 w-full text-left"
             >
               <Star size={18} />
-              Write a Review
+              {t.nav.writeReview}
             </button>
             <LanguageToggle />
             <button 
@@ -373,7 +373,7 @@ function App() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-black mb-8 text-center flex items-center justify-center gap-3">
             <MessageSquareQuote className="text-[#0B3B8F]" size={32} />
-            What Our Users Say
+            {t.nav.testimonials}
           </h2>
           <div className="relative mb-10">
             <div 
@@ -392,7 +392,7 @@ function App() {
               data-url="https://senja.io/p/bmsfusion/r/NWjyM9"
             >
               <Star size={20} />
-              Write a Review
+              {t.nav.writeReview}
             </button>
           </div>
         </div>

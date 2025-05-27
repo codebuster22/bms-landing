@@ -6,7 +6,9 @@ export const translations = {
       pricing: 'Pricing',
       download: 'Download',
       support: 'Support',
-      purchaseNow: 'Purchase Now'
+      purchaseNow: 'Purchase Now',
+      testimonials: 'Testimonials',
+      writeReview: 'Write a Review'
     },
     hero: {
       title: 'Pharmacy Invoice Management, Simplified',
@@ -122,7 +124,9 @@ export const translations = {
       pricing: 'मूल्य निर्धारण',
       download: 'डाउनलोड',
       support: 'सहायता',
-      purchaseNow: 'अभी खरीदें'
+      purchaseNow: 'अभी खरीदें',
+      testimonials: 'प्रशंसापत्र',
+      writeReview: 'समीक्षा लिखें'
     },
     hero: {
       title: 'फार्मेसी बिल प्रबंधन, सरल किया गया',

@@ -1,4 +1,4 @@
-import { Menu, X, FileCheck, DollarSign, FileX, ChevronRight, Download, Key, Mail, CheckCircle2, Monitor, Shield, Database, Layers, MessageSquareQuote, Star } from 'lucide-react';
+import { Menu, X, FileCheck, DollarSign, FileX, ChevronRight, Download, Key, Mail, CheckCircle2, Monitor, Shield, Database, Layers, MessageSquareQuote, Star, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import YouTube from 'react-youtube';
@@ -74,6 +74,19 @@ function App() {
   return (
     <div className="min-h-screen bg-[#F5F5F5] font-['Space_Grotesk']">
       <LanguageSelector />
+      
+      {/* Contact Announcement Bar */}
+      <div className="bg-[#FF9800] text-white py-2 px-6 md:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          <a 
+            href="tel:+918107902653" 
+            className="flex items-center gap-2 text-sm md:text-base font-medium hover:text-gray-200 transition-colors"
+          >
+            <Phone size={16} />
+            <span>Contact BMS Team: +918107902653</span>
+          </a>
+        </div>
+      </div>
       
       {/* Navigation */}
       <nav className="bg-[#0B3B8F] text-white py-4 px-6 md:px-8 lg:px-12 relative z-50">
